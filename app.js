@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ejs = require("ejs");
 const _ = require("lodash");
 
-mongoose.connect('mongodb://127.0.0.1:27017/Venka');
+mongoose.connect('mongodb+srv://Venkatesan:Venka@cluster0.zcxvzob.mongodb.net/Venka');
 const postSchema = {
   title: String,
   content: String
@@ -37,8 +37,8 @@ async function del(Post, Entry){
   await Post.deleteMany(Entry);
 }
 
+
 app.get("/",function(req,res){
-  del(Post,{});
   Entries(Post).then((posts)=>{
   res.render('home',{StartingContent:homeStartingContent, blogs : posts});
   });
