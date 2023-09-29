@@ -49,6 +49,9 @@ app.get("/:topic",function(req,res){
   if(req.params.topic==="compose"){
     res.render('compose');
   }
+  else if(req.params.topic==="delete"){
+    res.render('delete');
+  }
   else if (req.params.topic==="about"){
    res.render('about',{Content:aboutContent});
   }
@@ -73,6 +76,19 @@ app.post("/compose",function(req,res){
   const composepost = new Post({title : req.body.Title, content : req.body.Post });
   composepost.save();
   res.redirect("/");
+
+});
+app.post("/delete",function(req,res){
+  if(req.body.Title !== '' && req.body.Title !== 'delete all post' ){
+  del(Post,{title: req.body.Title})
+  res.redirect("/");
+  }else if(req.body.Title === 'delete all post'){
+    del(Post,{})
+    res.redirect("/");
+  }
+  else{
+    res.redirect("/");
+  }
 
 });
 
