@@ -39,6 +39,7 @@ async function del(Post, Entry){
 
 
 app.get("/",function(req,res){
+  // del(Post,{}); // to delete entire collections
   Entries(Post).then((posts)=>{
   res.render('home',{StartingContent:homeStartingContent, blogs : posts});
   });
