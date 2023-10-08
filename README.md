@@ -39,7 +39,7 @@ Replace the MongoDB connection code in App.js file.
 </br>
 from
 ```js
-mongoose.connect('mongodb+srv://Venkatesan:Venka@cluster0.zcxvzob.mongodb.net/Venka');
+mongoose.connect('mongodb+srv://Venkatesan:<yourPassword>@cluster0.zcxvzob.mongodb.net/Venka');
 ```
 with 
 ```js
